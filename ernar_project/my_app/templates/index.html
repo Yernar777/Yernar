@@ -1,0 +1,25 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+    {% for card in cards %}
+    <img src="{{card.img.url}}" alt="{{card.name}}">
+    <div class="price1">
+        <div><strike>{{card.prise}}</strike></div>
+        <div class="podprice2"><p class="p2">{{card.old_price}}</p></div>
+    </div>
+    <h2>{{card.name}}</h2>
+    <p class="p3">{{card.descroptions}}</p>
+    {% endfor %}
+
+    {% for cat in categoryes%}
+    <a href="{%url 'category' cat.id%}"><p>{{cat.name}}</p></a>
+    {% endfor%}
+</body>
+</html>
